@@ -31,5 +31,12 @@ async def read_filters():
 
 
 @app.get("/content/trending")
-async def read_filters():
+async def read_trending():
     return {"message": posts.posts[:5]}
+
+
+@app.get("/content/post-by-id/{id}")
+async def read_post_by_id(id):
+    for post in posts.posts:
+        if post["id"] == id:
+            return {"message": post}
