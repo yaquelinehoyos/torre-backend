@@ -3,6 +3,7 @@ import requests
 import json
 from starlette.middleware.cors import CORSMiddleware
 import filters
+import posts
 
 app = FastAPI()
 
@@ -27,3 +28,8 @@ async def read_bio(username):
 @app.get("/content/filters")
 async def read_filters():
     return {"message": filters.filters}
+
+
+@app.get("/content/trending")
+async def read_filters():
+    return {"message": posts.posts[:5]}
