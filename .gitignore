@@ -1,0 +1,9 @@
+#Local env
+.env
+.env.*.Local
+
+#Vscode stuff
+.vscode*
+
+#Python stuff
+__pycache__
