@@ -40,3 +40,12 @@ async def read_post_by_id(id):
     for post in posts.posts:
         if post["id"] == id:
             return {"message": post}
+
+
+@app.get("/content/posts/{filter}")
+async def read_posts(filter):
+    finded = []
+    for post in posts.posts:
+        if post["name"].lower().find(filter.lower()) >= 0:
+            finded.append(post)
+    return {"message": finded}
